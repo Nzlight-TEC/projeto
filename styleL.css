@@ -27,10 +27,11 @@ nav button {
   background-color: #eee;
   border: none;
   padding: 10px 20px;
-  margin: 0 5px;
+  margin:  5px;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.3s;
+  
 }
 
 nav button:hover {
