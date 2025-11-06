@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,105 +8,29 @@
 </head>
 <body>
   <header> 
-  <img src="img/image dua - unça - lux.png" alt="Logo" class="logo"> 
-  <nav> 
-    <button onclick="window.location.href='index.html'">Inicio</button> 
-    <button onclick="window.location.href='manual.html'">Manual</button> 
-    <button onclick="window.location.href='login.html'">Login</button> 
-  </nav> 
-</header>
+    <img src="img/image dua - unça - lux.png" alt="Logo" class="logo"> 
+    <nav> 
+      <button onclick="window.location.href='index.html'">Início</button> 
+      <button onclick="window.location.href='manuel.html'">Manual</button> 
+      <button onclick="window.location.href='login.html'">Login</button> 
+    </nav> 
+  </header>
+
   <main>
     <aside class="filtro">
       <h2>Filtro</h2>
-
       <div class="filtro-box">
         <h3>Categoria</h3>
-        <label><input type="checkbox" value="vestido"> Vestidos</label>
-        <label><input type="checkbox" value="blusa"> Blusas</label>
-        <label><input type="checkbox" value="outfit">Conjunto</label>
-      </div>
-
-      <div class="filtro-box">
-        <h3>Cor</h3>
-        <label><input type="checkbox" value="verde"> Verde</label>
-        <label><input type="checkbox" value="bege"> Bege</label>
+        <label><input type="checkbox" value="vestido" class="filtro-input"> Vestidos</label>
+        <label><input type="checkbox" value="blusa" class="filtro-input"> Blusas</label>
+        <label><input type="checkbox" value="outfit" class="filtro-input"> Conjuntos</label>
       </div>
     </aside>
 
-    <section class="catalogo" id="catalogo">
-      <!-- Produtos -->
-      <div class="produto" data-categoria="vestido" data-cor="verde">
-        <a href="compra.html">
-        <img src="img/Vestido longo verde - Copia.jpg" alt="Vestido Verde Doalux">
-        <h4>Vestido Longo Verde</h4>
-        <p>R$75,99</p>
-        </a>
-      </div>
-
-      <div class="produto" data-categoria="blusa" data-cor="bege">
-        <img src="img/blusabege.png" alt="Blusa Bege Doalux">
-        <h4>Blusa Assimétrica Bege</h4>
-        <p>R$36,99</p>
-      </div>
-
-      <div class="produto" data-categoria="blusa" data-cor="azul">
-        <img src="img/brusa azul - Copia.jpg" alt="Blusa Azul Doalux">
-        <h4>Blusa Frente Única Azul</h4>
-        <p>R$42,90</p>
-      </div>
-      <div class="produto" data-categoria="outfit">
-        <img src="img/shared image (1).jpg">
-        <h4>Outfit</h4>
-        
-      </div>
-       <div class="produto" data-categoria="outfit">
-        <img src="img/shared image (2).jpg">
-        <h4>Outfit</h4>
-        
-      </div>
-       <div class="produto" data-categoria="outfit">
-        <img src="img/shared image (3).jpg">
-        <h4>Outfit</h4>
-        
-      </div>
-       <div class="produto" data-categoria="outfit">
-        <img src="img/shared image (4).jpg">
-        <h4>Outfit</h4>
-
-      </div>
-       <div class="produto" data-categoria="outfit">
-        <img src="img/shared image (6).jpg">
-        <h4>Outfit</h4>
-        
-      </div>
-       <div class="produto" data-categoria="outfit">
-        <img src="img/shared image.jpg">
-        <h4>Outfit</h4>
-        
-      </div>
-       <div class="produto" data-categoria="outfit">
-        <img src="img/Roupa feminina1 - Copia.jpg">
-        <h4>Outfit</h4>
-        
-      </div>
-       <div class="produto" data-categoria="outfit">
-        <img src="img/Roupa feminina2 - Copia.jpg">
-        <h4>Outfit</h4>
-        
-      </div>
-       <div class="produto" data-categoria="outfit">
-        <img src="img/Roupa masculina1 - Copia.jpg">
-        <h4>Outfit</h4>
-        
-      </div>
-       <div class="produto" data-categoria="outfit">
-        <img src="img/Roupa masculina2 - Copia.jpg">
-        <h4>Outfit</h4>
-        
-      </div>
-
-      </div>
-    </section>
+    <section class="catalogo" id="catalogo"></section>
   </main>
+
+  <script src="produtos.js"></script>
+  <script src="catalogo.js"></script>
 </body>
 </html>

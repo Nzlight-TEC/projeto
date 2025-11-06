@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagrama Técnico - StyleMyWear</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #666;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #f9f9f9;
+      border-radius: 15px;
+      box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+      padding: 30px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid #888;
+    }
+    .header h1 {
+      color: #555;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .header p { color: #777; font-size: 14px; }
+    .diagram-area {
+      position: relative;
+      min-height: 600px;
+      background: #f0f0f0;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    .layer { margin-bottom: 40px; }
+    .layer-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .components {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .component {
+      background: #fff;
+      border: 2px solid #999;
+      border-radius: 8px;
+      padding: 12px 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+      min-width: 140px;
+      text-align: center;
+      color: #333;
+    }
+    .component:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      background: #777;
+      color: #fff;
+      border-color: #555;
+    }
+    .component.active {
+      background: linear-gradient(135deg, #555 0%, #777 100%);
+      color: white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    }
+    .connector { width: 2px; height: 30px; background: #999; margin: 0 auto; opacity: 0.4; }
+    .details-panel {
+      background: #fff;
+      border: 2px solid #999;
+      border-radius: 10px;
+      padding: 25px;
+      margin-top: 20px;
+      display: none;
+      animation: slideIn 0.3s ease-out;
+      color: #333;
+    }
+    .details-panel.show { display: block; }
+    @keyframes slideIn { from {opacity:0;transform:translateY(-20px);} to {opacity:1;transform:translateY(0);} }
+    .details-panel h3 { color: #555; margin-bottom: 15px; font-size: 24px; }
+    .details-panel h4 { color: #666; margin-top: 20px; margin-bottom: 10px; font-size: 16px; }
+    .details-panel ul { margin-left: 20px; line-height: 1.8; }
+    .close-btn {
+      float: right; background: #666; color: white; border: none;
+      padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: #555;
+      color: white;
+      border-radius: 12px;
+      font-size: 11px;
+      margin: 3px;
+    }
+    .legend {
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #999;
+    }
+    .legend h4 { color: #555; margin-bottom: 10px; }
+    .legend p { font-size: 13px; color: #666; margin: 5px 0; }
+    .back-btn {
+      background: #555; color: white; border: none; padding: 10px 18px;
+      border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px;
+      transition: all 0.3s; float: left; margin-bottom: 10px;
+    }
+    .back-btn:hover { background: #333; transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <button class="back-btn" onclick="window.location.href='index.html'">⬅ Voltar</button>
+      <h1>Diagrama Técnico</h1>
+      <p>Entenda como funciona o sistema de personalização de roupas</p>
+    </div>
+
+    <div class="diagram-area">
+      <!-- Camada de Apresentação -->
+      <div class="layer">
+        <div class="layer-title">🎨 Camada de Interação (Frontend)</div>
+        <div class="components">
+          <div class="component" data-component="upload">📤 Envio da Roupa</div>
+          <div class="component" data-component="styleform">🧵 Escolha do Estilo</div>
+          <div class="component" data-component="preview">👕 Pré-visualização</div>
+          <div class="component" data-component="cart">🛒 Carrinho & Pedido</div>
+          <div class="component" data-component="tracking">📦 Acompanhamento</div>
+        </div>
+      </div>
+
+      <div class="connector"></div>
+
+      <!-- Lógica de Negócio -->
+      <div class="layer">
+        <div class="layer-title">⚙️ Camada de Processamento (Backend)</div>
+        <div class="components">
+          <div class="component" data-component="ai">🎨 Estilização</div>
+          <div class="component" data-component="designers">🎨 Revisão de Designers</div>
+          <div class="component" data-component="orders">📋 Gestão de Pedidos</div>
+          <div class="component" data-component="payment">💳 Pagamentos</div>
+        </div>
+      </div>
+
+      <div class="connector"></div>
+
+      <!-- Dados e Armazenamento -->
+      <div class="layer">
+        <div class="layer-title">💾 Armazenamento e Integrações</div>
+        <div class="components">
+          <div class="component" data-component="database">🗄️ Banco de Dados</div>
+          <div class="component" data-component="storage">☁️ Armazenamento de Imagens</div>
+          <div class="component" data-component="notifications">🔔 Notificações</div>
+          <div class="component" data-component="analytics">📈 Relatórios</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="detailsPanel" class="details-panel"></div>
+
+    <div class="legend">
+      <h4>💡 Como o site funciona:</h4>
+      <p>O usuário envia uma foto da sua roupa ou modelo base, escolhe o estilo desejado, visualiza a transformação e finaliza o pedido.</p>
+      <p>O sistema usa designers humanos para gerar o resultado final e acompanhar todo o processo até a entrega.</p>
+    </div>
+  </div>
+
+  <script>
+    const componentData = {
+      upload: {
+        title: '📤 Envio da Roupa',
+        description: 'Usuário faz upload da peça original que deseja personalizar.',
+        features: [
+          'Upload de imagem ou vídeo da peça',
+          'Detecção automática do tipo de roupa (camisa, calça, etc.)',
+          'Sugestão de ângulos e qualidade da foto',
+          'Pré-validação antes do envio ao servidor'
+        ],
+        tech: []
+      },
+      styleform: {
+        title: '🧵 Escolha do Estilo',
+        description: 'O cliente define o estilo desejado da roupa.',
+        features: [
+          'Escolha entre estilos (Streetwear, Vintage, Minimalista, etc.)',
+          'Opção de paleta de cores',
+          'Texturas e estampas personalizadas',
+          'Campo para referências visuais ou artistas inspiradores'
+        ],
+        tech: []
+      },
+      preview: {
+        title: '👕 Pré-visualização',
+        description: 'O sistema mostra como a roupa ficará após a personalização.',
+        features: [
+          'Renderização com variação de ângulos',
+          'Comparação Antes/Depois',
+          'Ajuste fino de detalhes pelo usuário',
+          'Sistema de feedback instantâneo'
+        ],
+        tech: []
+      },
+      cart: {
+        title: '🛒 Carrinho & Pedido',
+        description: 'Finalização do pedido e confirmação do serviço.',
+        features: [
+          'Resumo da peça e do estilo escolhido',
+          'Opção de envio físico da roupa (etiqueta gerada)',
+          'Frete e endereço automático',
+          'Cálculo de preço com base no nível de customização'
+        ],
+        tech: []
+      },
+      tracking: {
+        title: '📦 Acompanhamento',
+        description: 'Usuário acompanha o progresso do serviço.',
+        features: [
+          'Status: Recebido → Em Estilização → Finalizado → Enviado',
+          'Notificações por email/SMS',
+          'Visualização do resultado final',
+          'Confirmação de entrega'
+        ],
+        tech: []
+      },
+      ai: {
+        title: ' Estilização ',
+        description: 'Motor inteligente de estilização das roupas.',
+        features: [
+          'Análise da peça e extração de padrões',
+          'Aplicação do estilo com base nas preferências',
+          'Geração de imagens realistas',
+          'Sistema de aprendizado contínuo'
+        ],
+        tech: []
+      },
+      designers: {
+        title: '🎨 Revisão de Designers',
+        description: 'Designers humanos refinam o trabalho da IA.',
+        features: [
+          'Correções manuais em detalhes',
+          'Ajuste de cores, caimento e textura',
+          'Verificação de coerência com o estilo',
+          'Aprovação final antes da entrega'
+        ],
+        tech: []
+      },
+      orders: {
+        title: '📋 Gestão de Pedidos',
+        description: 'Controle de todo o fluxo do pedido.',
+        features: [
+          'Acompanhamento de status interno',
+          'Controle de prazos',
+          'Histórico de revisões',
+          'Comunicação cliente ↔ equipe'
+        ],
+        tech: []
+      },
+      payment: {
+        title: '💳 Pagamentos',
+        description: 'Gestão e processamento das transações.',
+        features: [
+          'PIX, Cartão e Boleto',
+          'Tokenização segura',
+          'Pagamentos parcelados',
+          'Confirmação instantânea'
+        ],
+        tech: []
+      },
+      database: {
+        title: '🗄️ Banco de Dados',
+        description: 'Armazena informações dos usuários e pedidos.',
+        features: [
+          'Cadastro de clientes',
+          'Histórico de peças enviadas',
+          'Estilos preferidos e resultados gerados',
+          'Logs de operações'
+        ],
+        tech: []
+      },
+      storage: {
+        title: '☁️ Armazenamento de Imagens',
+        description: 'Mantém todas as imagens enviadas e geradas.',
+        features: [
+          'Organização por pastas e clientes',
+          'Compressão e otimização automática',
+          'URLs seguras com tempo limitado',
+          'CDN global'
+        ],
+        tech: []
+      },
+      notifications: {
+        title: '🔔 Notificações',
+        description: 'Sistema de comunicação com o cliente.',
+        features: [
+          'Confirmações por email',
+          'Atualizações de status',
+          'Mensagens diretas via painel',
+          'Alertas automáticos de entrega'
+        ],
+        tech: []
+      },
+      analytics: {
+        title: '📈 Relatórios e Métricas',
+        description: 'Acompanhamento de desempenho e comportamento dos usuários.',
+        features: [
+          'Métricas de uso e conversão',
+          'Tempo médio de estilização',
+          'Satisfação dos clientes',
+          'Relatórios exportáveis'
+        ],
+        tech: []
+      }
+    };
+
+    const detailsPanel = document.getElementById('detailsPanel');
+    const components = document.querySelectorAll('.component');
+
+    components.forEach(component => {
+      component.addEventListener('click', function() {
+        const id = this.getAttribute('data-component');
+        const data = componentData[id];
+        components.forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+
+        detailsPanel.innerHTML = `
+          <button class="close-btn" onclick="closeDetails()">✕ Fechar</button>
+          <h3>${data.title}</h3>
+          <p style="color:#666;margin-bottom:20px;font-style:italic;">${data.description}</p>
+          <h4>✨ Funcionalidades:</h4>
+          <ul>${data.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+          <h4></h4>
+          <div>${data.tech.map(t=>`<span class="badge">${t}</span>`).join('')}</div>
+        `;
+        detailsPanel.classList.add('show');
+        detailsPanel.scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    function closeDetails() {
+      detailsPanel.classList.remove('show');
+      components.forEach(c=>c.classList.remove('active'));
+    }
+  </script>
+</body>
+</html>
